@@ -2,6 +2,6 @@ project:
   image: $APP_NAME:$APP_VERSION
   entrypoint: "/bin/bash"
   volumes:
-    - $(pwd):/opt/workspace
+    - .:/opt/workspace
   workdir: "/opt/workspace"
   command: "./gradlew build"
