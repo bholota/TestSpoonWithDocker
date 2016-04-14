@@ -1,4 +1,5 @@
 project:
+  image: $APP_NAME:$APP_VERSION
   entrypoint: "/bin/bash"
   volumes:
     - $(pwd):/opt/workspace
