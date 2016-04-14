@@ -3,5 +3,5 @@ project:
   entrypoint: "/bin/bash"
   volumes:
     - .:/opt/workspace
-  workdir: "/opt/workspace"
+  working_dir: "/opt/workspace"
   command: "./gradlew build"
