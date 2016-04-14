@@ -1,0 +1,6 @@
+project:
+  entrypoint: "/bin/bash"
+  volumes:
+    - $(pwd):/opt/workspace
+  workdir: "/opt/workspace"
+  command: "./gradlew build"

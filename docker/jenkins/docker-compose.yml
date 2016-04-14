@@ -1,0 +1,7 @@
+﻿jenkins:
+  image: jenkins
+  ports:
+    - 8080:8080
+    - 50000:50000
+  volumes:
+    - /home/mr3mpty:/var/jenkins_home
