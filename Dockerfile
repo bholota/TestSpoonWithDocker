@@ -24,6 +24,8 @@ RUN wget https://raw.githubusercontent.com/oren/docker-ionic/master/tools/androi
 ENV PATH ${PATH}:/opt/tools
 RUN chmod +x /opt/tools/android-accept-licenses.sh
 
+RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui --filter platform-tools,tools,build-tools-23.0.3,android-23,addon-google_apis_x86-google-23,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services,sys-img-armeabi-v7a-android-23"]
+
 # Cleaning
 RUN apt-get clean
 
