@@ -5,5 +5,5 @@ project:
     - /var/run/docker.sock:/var/run/docker.sock
     - ./dot-gradle:/root/.gradle
     - /dev/bus/usb:/dev/bus/usg
-  command: "ls"
+  command: "ls >> some.txt"
   privileged: true
