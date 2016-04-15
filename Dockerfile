@@ -20,27 +20,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
 RUN mkdir -p /opt/tools
-RUN wget https://raw.githubusercontent.com/oren/docker-ionic/master/tools/android-accept-licenses.sh -O /opt/tools/android-accept-licenses.sh
 ENV PATH ${PATH}:/opt/tools
-RUN chmod +x /opt/tools/android-accept-licenses.sh
-RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui"]
-
-RUN echo $PATH
-RUN ls /opt/android-sdk-linux/tools
-RUN ls /opt/android-sdk-linux/platform-tools
-
-RUN which adb
-RUN which android
-
-# Create emulator
-RUN echo "no" | android create avd \
-                --force \
-                --device "Nexus 5" \
-                --name test \
-                --target android-21 \
-                --abi armeabi-v7a \
-                --skin WVGA800 \
-                --sdcard 512M
 
 # Cleaning
 RUN apt-get clean
