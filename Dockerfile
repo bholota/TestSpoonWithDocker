@@ -28,6 +28,8 @@ RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui --f
 
 # Cleaning
 RUN apt-get clean
+RUN groupadd docker
+RUN usermod -aG docker root
 
 # GO to workspace
 RUN mkdir -p /opt/workspace
