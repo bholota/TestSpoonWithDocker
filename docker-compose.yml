@@ -4,4 +4,4 @@ project:
   volumes:
     - .:/opt/workspace
   working_dir: "/opt/workspace"
-  command: "./gradlew build"
+  command: "ls"
