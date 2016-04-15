@@ -19,10 +19,9 @@ ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
+RUN mkdir -p /opt/tools
 RUN wget https://raw.githubusercontent.com/oren/docker-ionic/master/tools/android-accept-licenses.sh -O /opt/tools/android-accept-licenses.sh
 ENV PATH ${PATH}:/opt/tools
-RUN echo $PATH
-RUN ls /opt/tools
 RUN chmod +x /opt/tools/android-accept-licenses.sh
 RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui --filter platform-tools,tools,build-tools-23.0.3,android-23,addon-google_apis_x86-google-23,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services,sys-img-armeabi-v7a-android-21"]
 
