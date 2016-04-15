@@ -1,11 +1,11 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 
 # based on work Jacek Marchwicki
 MAINTAINER Bartłomiej Hołota "bartekholota@gmail.com"
 
 # Install java8
-RUN apt-get install -y software-properties-common && add-apt-repository -y ppa:webupd8team/java && apt-get update
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+RUN apt-get install -y software-properties-common && add-apt-repository -y ppa:webupd8team/java && apt-key update && apt-get update
+RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
 RUN apt-get install -y oracle-java8-installer
 
 # Install Deps
@@ -24,7 +24,7 @@ RUN wget https://raw.githubusercontent.com/oren/docker-ionic/master/tools/androi
 ENV PATH ${PATH}:/opt/tools
 RUN chmod +x /opt/tools/android-accept-licenses.sh
 
-RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui --filter platform-tools,tools,build-tools-23.0.3,android-23,addon-google_apis_x86-google-23,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services,sys-img-armeabi-v7a-android-23"]
+RUN ["android-accept-licenses.sh", "android update sdk --all --force --no-ui --filter platform-tools,build-tools-23.0.3,android-23,addon-google_apis_x86-google-23,extra-android-support,extra-android-m2repository,extra-google-m2repository,extra-google-google_play_services,sys-img-armeabi-v7a-android-23"]
 
 # Cleaning
 RUN apt-get clean
