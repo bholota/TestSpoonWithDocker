@@ -1,2 +1,3 @@
 #!/bin/bash
-docker build -t jenkins .
+docker-compose build
+mkdir jenkins-data
