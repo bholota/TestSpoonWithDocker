@@ -20,7 +20,9 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 # Install sdk elements
 RUN mkdir -p /opt/tools
+RUN wget https://raw.githubusercontent.com/oren/docker-ionic/master/tools/android-accept-licenses.sh -O /opt/tools/android-accept-licenses.sh
 ENV PATH ${PATH}:/opt/tools
+RUN chmod +x /opt/tools/android-accept-licenses.sh
 
 # Cleaning
 RUN apt-get clean
