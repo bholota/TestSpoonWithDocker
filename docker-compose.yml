@@ -1,8 +1,6 @@
 project:
   build: .
-  entrypoint: "/bin/bash"
   volumes:
     - .:/opt/workspace
     - /var/run/docker.sock:/var/run/docker.sock
-  working_dir: "/opt/workspace"
-  command: "ls"
+  command: "./gradlew build"
